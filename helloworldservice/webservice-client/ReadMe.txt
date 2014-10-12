@@ -1,0 +1,2 @@
+参考Axis2的samples目录下的pojo示例
+重点是sample.addressbook.rpcclient.HelloWorldRPCClient这个类，用于访问自己发布的HelloWorld这个WebService。
