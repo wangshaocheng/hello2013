@@ -1,0 +1,41 @@
+<project name="helloworldservice" basedir="." default="deploy">
+
+	<property name="src.dir" value="src">
+	</property>
+	<property name="build.dir" value="${basedir}/build">
+	</property>
+
+	<path id="build.classpath">
+	</path>
+
+	<target name="init">
+		<delete dir="${build.dir}">
+		</delete>
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.dir}/classes" />
+		<mkdir dir="${build.dir}/jar" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="${src.dir}" destdir="${build.dir}\classes">
+			<classpath refid="build.classpath">
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="makejar" depends="compile">
+		<jar destfile="${build.dir}\jar\${ant.project.name}.jar">
+			<fileset dir="${build.dir}/classes">
+				<include name="**/*.class"/>
+			</fileset>
+			<metainf dir="${basedir}">
+				<include name="services.xml"/>
+			</metainf>
+		</jar>
+	</target>
+	
+	<target name="deploy" depends="makejar">
+		<copy file="${build.dir}/jar/${ant.project.name}.jar" todir="D:\wsc\software\apache-tomcat-6.0.41\webapps\axis2\WEB-INF\services"></copy>
+	</target>
+
+</project>

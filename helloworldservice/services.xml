@@ -1,0 +1,30 @@
+<service name="HelloWorld">
+    <description>
+        This service is to get the running Axis version
+    </description>
+    <parameter name="ServiceClass">com.test.HelloWorld</parameter>
+    <operation name="sayHello">
+    	<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+    <operation name="query">
+    	<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+    <operation name="addTowNumbers">
+    	<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+</service>
+
+<!-- 
+<service name="HelloWorld" scope="application">
+    <description>
+        POJO: HelloWorld Service
+    </description>
+    <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+                         class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+                         class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+    </messageReceivers>
+    <parameter name="ServiceClass">com.test.HelloWorld</parameter>
+</service>
+ -->
